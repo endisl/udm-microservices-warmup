@@ -1,5 +1,6 @@
 package com.endiluamba.calculator;
 
+import com.endiluamba.calculator.exception.UnsupportedMathOperationException;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -11,7 +12,7 @@ public class CalculatorConroller {
     @RequestMapping(value="/sum/{numberOne}/{numberTwo}", method = RequestMethod.GET)
     public Double sum(@PathVariable("numberOne") String numberOne, @PathVariable("numberTwo") String numberTwo) throws Exception {
         if (!isNumeric(numberOne) || !isNumeric(numberTwo)) {
-            throw new Exception();
+            throw new UnsupportedMathOperationException("Please set a numeric value!");
         }
         Double sum = convertToDouble(numberOne) + convertToDouble(numberTwo);
         return sum;
