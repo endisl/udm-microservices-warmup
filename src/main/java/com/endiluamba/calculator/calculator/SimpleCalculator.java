@@ -1,5 +1,8 @@
 package com.endiluamba.calculator.calculator;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class SimpleCalculator {
 
     public Double sum(Double firstNumber, Double secondNumber) {

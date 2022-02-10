@@ -4,6 +4,7 @@ import com.endiluamba.calculator.calculator.SimpleCalculator;
 import com.endiluamba.calculator.exception.DivisionByZeroException;
 import com.endiluamba.calculator.exception.NegativeSquareRootException;
 import com.endiluamba.calculator.exception.UnsupportedMathOperationException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,7 +16,8 @@ import static com.endiluamba.calculator.converters.NumberConverter.isNumeric;
 @RestController
 public class CalculatorController {
 
-    private SimpleCalculator calc = new SimpleCalculator();
+    @Autowired
+    private SimpleCalculator calc;
 
     @RequestMapping(value="/sum/{numberOne}/{numberTwo}", method = RequestMethod.GET)
     public Double sum(@PathVariable("numberOne") String numberOne, @PathVariable("numberTwo") String numberTwo) throws Exception {
