@@ -54,7 +54,7 @@ public class CalculatorController {
         return calc.division(convertToDouble(numberOne), convertToDouble(numberTwo));
     }
 
-    @RequestMapping(value="/average/{numberOne}/{numberTwo}", method = RequestMethod.GET)
+    @RequestMapping(value="/mean/{numberOne}/{numberTwo}", method = RequestMethod.GET)
     public Double mean(@PathVariable("numberOne") String numberOne, @PathVariable("numberTwo") String numberTwo) throws Exception {
         if (!isNumeric(numberOne) || !isNumeric(numberTwo)) {
             throw new UnsupportedMathOperationException("Please set a numeric value!");
